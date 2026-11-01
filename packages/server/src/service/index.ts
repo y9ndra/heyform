@@ -7,12 +7,12 @@ export { MailService } from './mail.service'
 export { PaymentService } from './payment.service'
 export { RedisService } from './redis.service'
 export { ScheduleService } from './schedule.service'
-export {
+export type {
   SocialLoginAuthorization,
   SocialLoginCallbackContext,
-  SocialLoginKind,
-  SocialLoginService
+  SocialLoginKind
 } from './social-login.service'
+export { SocialLoginService } from './social-login.service'
 export { SubmissionService } from './submission.service'
 export { SubmissionIpLimitService } from './submission-ip-limit.service'
 export { TeamService } from './team.service'

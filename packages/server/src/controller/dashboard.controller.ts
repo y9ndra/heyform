@@ -1,5 +1,5 @@
 import { Controller, Get, Header, Redirect, Req, Res } from '@nestjs/common'
-import { Request, Response } from 'express'
+import type { Request, Response } from 'express'
 
 import { COOKIE_INVITATION_NAME } from '@config'
 import {

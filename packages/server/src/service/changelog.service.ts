@@ -29,19 +29,18 @@ const FAILURE_CACHE_TTL = '5m'
 export class ChangelogService {
   constructor(private readonly redisService: RedisService) {}
 
-  async getLatestRelease(): Promise<LatestRelease> {
+  async getLatestRelease(): Promise<LatestRelease | null> {
     const cached = await this.redisService.get(LATEST_CACHE_KEY)
 
     if (cached) {
-      return toJSON<LatestRelease>(cached, {} as LatestRelease)!
+      return toJSON<LatestRelease>(cached) ?? null
     }
 
     return this.fetchLatestRelease()
   }
 
-  private async fetchLatestRelease(): Promise<LatestRelease> {
-    // An empty release means there is no changelog
-    let release = {} as LatestRelease
+  private async fetchLatestRelease(): Promise<LatestRelease | null> {
+    let release: LatestRelease | null = null
 
     try {
       const result = await got
@@ -70,7 +69,7 @@ export class ChangelogService {
     await this.redisService.set({
       key: LATEST_CACHE_KEY,
       value: JSON.stringify(release),
-      duration: release.id ? CACHE_TTL : FAILURE_CACHE_TTL
+      duration: release ? CACHE_TTL : FAILURE_CACHE_TTL
     })
 
     return release

@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import axios from 'axios'
 import { act } from 'react'
 import { type Root, createRoot } from 'react-dom/client'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
@@ -70,7 +71,7 @@ test.each(['v3.0.9', 'v3.0.8'])('no badge when the latest release is %s', async 
 })
 
 test('falls back to the GitHub releases page without a release to show', async () => {
-  vi.spyOn(ChangelogService, 'latest').mockResolvedValue({} as any)
+  vi.spyOn(ChangelogService, 'latest').mockResolvedValue(null)
   await renderButton()
   const event = new MouseEvent('click', { bubbles: true, cancelable: true })
 
@@ -79,4 +80,17 @@ test('falls back to the GitHub releases page without a release to show', async (
   expect(badge()).toBeNull()
   expect(event.defaultPrevented).toBe(false)
   expect(useAppStore.getState().modals.has('ChangelogsModal')).toBe(false)
+})
+
+test('latest returns null when the API has no changelog', async () => {
+  vi.spyOn(axios, 'get').mockResolvedValue({ data: '' })
+
+  expect(await ChangelogService.latest()).toBeNull()
+})
+
+test('latest returns the release from the API', async () => {
+  const latest = release('v3.0.10')
+  vi.spyOn(axios, 'get').mockResolvedValue({ data: latest })
+
+  expect(await ChangelogService.latest()).toEqual(latest)
 })

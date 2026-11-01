@@ -53,8 +53,8 @@ async function run() {
     failure = Object.assign(new Error('API rate limit exceeded'), {
       response: { statusCode: 403 }
     })
-    assert.deepStrictEqual(await service.getLatestRelease(), {})
-    assert.deepStrictEqual(await service.getLatestRelease(), {})
+    assert.strictEqual(await service.getLatestRelease(), null)
+    assert.strictEqual(await service.getLatestRelease(), null)
     assert.strictEqual(requests, 2)
     assert.deepStrictEqual(durations, ['1d', '5m'])
 

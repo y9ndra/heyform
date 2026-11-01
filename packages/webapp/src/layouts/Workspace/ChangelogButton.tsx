@@ -16,7 +16,7 @@ export default function ChangelogButton() {
 
   const isHasNew = useMemo(
     () =>
-      data?.version &&
+      data &&
       PACKAGE_VERSION &&
       data.version.replace(/^v/, '').localeCompare(PACKAGE_VERSION, undefined, { numeric: true }) >
         0,
@@ -25,7 +25,7 @@ export default function ChangelogButton() {
 
   function handleClick(event: MouseEvent) {
     // Without a release to show, the link falls back to the GitHub releases page
-    if (data?.version) {
+    if (data) {
       event.preventDefault()
       openModal('ChangelogsModal', data)
     }

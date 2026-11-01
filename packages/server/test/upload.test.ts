@@ -44,6 +44,8 @@ function testAllowsOnlyUploadAndSignatureFields() {
 
 function testRequiresMatchingSafeExtensionAndMimeType() {
   assert.ok(getUploadType('photo.png', 'image/png'))
+  assert.ok(getUploadType('signature.png', 'image/png'))
+  assert.strictEqual(getUploadType('blob', 'image/png'), undefined)
   assert.ok(getUploadType('notes.txt', 'text/plain; charset=utf-8'))
   assert.strictEqual(getUploadType('payload.html', 'image/png'), undefined)
   assert.strictEqual(getUploadType('payload.png', 'text/html'), undefined)

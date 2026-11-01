@@ -1,4 +1,4 @@
-import * as blocklist from 'disposable-email-blocklist'
+import blocklist from 'disposable-email-blocklist'
 
 export function isDisposableEmail(email: string): boolean {
   const [_, domain] = email.toLowerCase().split('@')

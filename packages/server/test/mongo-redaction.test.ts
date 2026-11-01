@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { redactMongoLogValue } from '../src/config/mongo'
 

@@ -1,5 +1,5 @@
 import { FormStatusEnum } from '@heyform-inc/shared-types-enums'
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { DeleteProjectCodeResolver } from '../src/resolver/project/delete-project-code.resolver'
 import { DeleteProjectResolver } from '../src/resolver/project/delete-project.resolver'

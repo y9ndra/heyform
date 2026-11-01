@@ -50,6 +50,10 @@ pnpm --filter ./packages/server run test:e2e
 The runner targets `http://localhost:9157` (the port published by
 `docker-compose.test.yml`). Override with `E2E_BASE_URL`.
 
+The runner loads `packages/server/.env`, so `MONGO_URI` and `REDIS_*` from that
+file apply. If the file doesn't match the target server (for example, the docker
+stack above), export `E2E_MONGO_URI` and `E2E_REDIS_PORT`, which take priority.
+
 ### Option B — bring the stack up and tear it down around the run
 
 ```bash
@@ -82,11 +86,11 @@ APP_HOMEPAGE_URL=http://localhost:9157
 | `E2E_WAIT_MS`      | `60000`                                | Max wait for readiness.                                  |
 | `E2E_ONLY`         | _unset_                                | Comma-separated suite names to run (e.g. `team,matrix`). |
 | `E2E_KEEP_UP`      | _unset_                                | `1` leaves the docker stack running (docker mode only).  |
-| `E2E_MONGO_URI`    | `mongodb://127.0.0.1:27017/heyform`    | Direct-mongo seed for `helpers/seed.ts`.                 |
+| `E2E_MONGO_URI`    | `mongodb://127.0.0.1:27018/heyform`    | Direct-mongo seed for `helpers/seed.ts`.                 |
 | `E2E_REDIS_HOST`   | `127.0.0.1`                            | Used by `helpers/verification.ts`.                       |
 | `E2E_REDIS_PORT`   | `9514`                                 | KeyDB port exposed by `docker-compose.test.yml`.         |
 
-`docker-compose.test.yml` publishes mongo on `27017:27017` and keydb on
+`docker-compose.test.yml` publishes mongo on `27018:27017` and keydb on
 `9514:6379` so the helpers can reach them from the host.
 
 ## Suite-by-suite breakdown (run order)

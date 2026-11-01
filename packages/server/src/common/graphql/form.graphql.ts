@@ -239,7 +239,7 @@ class LayoutInput {
   @Max(100)
   brightness?: number
 
-  @Field({ nullable: true })
+  @Field(type => String, { nullable: true })
   @IsEnum(FieldLayoutAlignEnum)
   align?: FieldLayoutAlignEnum
 }
@@ -418,7 +418,7 @@ export class UpdateFormCustomReportInput extends FormDetailInput {
 
 @InputType()
 export class FormAnalyticInput extends FormDetailInput {
-  @Field()
+  @Field(type => String)
   @IsEnum(FormAnalyticRangeEnum)
   range: FormAnalyticRangeEnum
 }

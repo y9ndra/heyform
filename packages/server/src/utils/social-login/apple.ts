@@ -1,6 +1,6 @@
 import { ServiceUnavailableException, UnauthorizedException } from '@nestjs/common'
 import { createPublicKey } from 'crypto'
-import * as jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 
 import { formatLocale, generateUrl, request } from './utils'
 import { qs, timestamp } from '@heyform-inc/utils'

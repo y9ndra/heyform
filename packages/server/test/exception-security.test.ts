@@ -1,5 +1,5 @@
 import { BadRequestException, InternalServerErrorException } from '@nestjs/common'
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { GraphqlService } from '../src/config/graphql'
 

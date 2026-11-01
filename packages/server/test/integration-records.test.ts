@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 const { IntegrationQueue, SKIPPED_JOB } = require('../src/queue/integration-queue')
 const { IntegrationService } = require('../src/service/integration.service')

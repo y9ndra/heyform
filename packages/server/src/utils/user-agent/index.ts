@@ -1,4 +1,4 @@
-import * as WhichBrowser from 'which-browser'
+import WhichBrowser from 'which-browser'
 
 import { helper } from '@heyform-inc/utils'
 

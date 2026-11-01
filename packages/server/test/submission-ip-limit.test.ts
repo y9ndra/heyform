@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 // The environment is read when the modules load, so set it before requiring them
 delete process.env.DISABLE_SUBMISSION_IP

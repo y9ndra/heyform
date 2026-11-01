@@ -1,5 +1,5 @@
 import { ExecutionContext, createParamDecorator } from '@nestjs/common'
-import * as rawBody from 'raw-body'
+import rawBody from 'raw-body'
 
 import { helper } from '@heyform-inc/utils'
 

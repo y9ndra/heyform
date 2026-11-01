@@ -27,7 +27,7 @@ export class UpdateUserInput {
   @IsOptional()
   restoreGravatar?: boolean
 
-  @Field({ nullable: true })
+  @Field(type => String, { nullable: true })
   @IsOptional()
   lang?: UserLangEnum
 }
@@ -85,7 +85,7 @@ export class UserDetailType {
   @Field({ nullable: true })
   avatar?: string
 
-  @Field({ nullable: true })
+  @Field(type => String, { nullable: true })
   lang?: UserLangEnum
 
   @Field()

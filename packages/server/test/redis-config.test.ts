@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { BullOptionsFactory } from '../src/config/bull'
 import { RedisService, createRedisOptions } from '../src/config/redis'

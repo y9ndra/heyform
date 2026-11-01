@@ -1,5 +1,5 @@
 import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
-import * as assert from 'assert'
+import assert from 'assert'
 
 import {
   getUploadContentDisposition,

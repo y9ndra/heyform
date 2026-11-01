@@ -1,7 +1,7 @@
 import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
 import { BadRequestException } from '@nestjs/common'
-import * as assert from 'assert'
-import * as http from 'http'
+import assert from 'assert'
+import http from 'http'
 import { AddressInfo } from 'net'
 
 import { validateAppConfig } from '../src/apps/validate-config'

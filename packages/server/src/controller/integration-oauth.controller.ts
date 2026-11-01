@@ -7,7 +7,7 @@ import {
   Res,
   UnauthorizedException
 } from '@nestjs/common'
-import * as crypto from 'crypto'
+import crypto from 'crypto'
 
 import { CookieOptionsFactory } from '@config'
 import { Auth, FormGuard, User } from '@decorator'

@@ -285,7 +285,7 @@ export class TeamMemberType {
   @Field()
   avatar: string
 
-  @Field()
+  @Field(type => Number)
   role: TeamRoleEnum
 
   @Field({ nullable: true })

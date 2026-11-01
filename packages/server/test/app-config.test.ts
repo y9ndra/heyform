@@ -1,5 +1,5 @@
 import { BadRequestException } from '@nestjs/common'
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { validateAppConfig } from '../src/apps/validate-config'
 import { UpdateIntegrationSettingsResolver } from '../src/resolver/integration/update-integration-settings.resolver'

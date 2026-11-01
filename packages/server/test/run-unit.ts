@@ -1,5 +1,5 @@
 import { spawnSync } from 'child_process'
-import * as path from 'path'
+import path from 'path'
 
 const tests = [
   'form-branding.test.ts',

@@ -1,5 +1,5 @@
 import { FORM_FIELD_KINDS } from '@heyform-inc/shared-types-enums'
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { normalizeAIFields } from '../src/utils/ai-fields'
 import { htmlUtils } from '@heyform-inc/answer-utils'

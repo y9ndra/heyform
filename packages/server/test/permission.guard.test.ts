@@ -1,5 +1,5 @@
 import { Reflector } from '@nestjs/core'
-import * as assert from 'assert'
+import assert from 'assert'
 import 'reflect-metadata'
 
 import { PermissionGuard, PermissionScopeEnum } from '../src/common/guard/permission.guard'

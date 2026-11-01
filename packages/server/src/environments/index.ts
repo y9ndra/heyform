@@ -1,5 +1,5 @@
 import { loadEnv } from '@heyooo-inc/env'
-import * as fs from 'fs'
+import fs from 'fs'
 import { resolve } from 'path'
 
 import { bytes, commonFileMimeTypes, helper, mime, toBool } from '@heyform-inc/utils'

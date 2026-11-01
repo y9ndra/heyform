@@ -1,23 +1,33 @@
 import { IconGift } from '@tabler/icons-react'
-import { useLocalStorageState, useRequest } from 'ahooks'
-import { useMemo } from 'react'
+import { useRequest } from 'ahooks'
+import { MouseEvent, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { ChangelogService } from '@/services'
 
-import { CHANGELOG_STORAGE_KEY } from '@/consts'
+import { PACKAGE_VERSION } from '@/consts'
+import { useAppStore } from '@/store'
 
 export default function ChangelogButton() {
   const { t } = useTranslation()
+  const { openModal } = useAppStore()
 
-  const [changelogId, setChangelogId] = useLocalStorageState(CHANGELOG_STORAGE_KEY)
   const { data } = useRequest(async () => ChangelogService.latest())
 
-  const isHasNew = useMemo(() => data && data.id !== changelogId, [changelogId, data])
+  const isHasNew = useMemo(
+    () =>
+      data?.version &&
+      PACKAGE_VERSION &&
+      data.version.replace(/^v/, '').localeCompare(PACKAGE_VERSION, undefined, { numeric: true }) >
+        0,
+    [data]
+  )
 
-  function handleClick() {
-    if (data) {
-      setChangelogId(data.id)
+  function handleClick(event: MouseEvent) {
+    // Without a release to show, the link falls back to the GitHub releases page
+    if (data?.version) {
+      event.preventDefault()
+      openModal('ChangelogsModal', data)
     }
   }
 

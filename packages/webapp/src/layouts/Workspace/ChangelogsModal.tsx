@@ -1,55 +1,16 @@
 import dayjs from 'dayjs'
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Markdown from 'react-markdown'
 
-import { ChangelogService } from '@/services'
 import { formatDay } from '@/utils'
 
-import { Async, Loader, Modal } from '@/components'
+import { Modal } from '@/components'
 import { useModal } from '@/store'
 import { ChangelogType } from '@/types'
 
-const Skeleton = () => {
-  return (
-    <div className="flex h-[calc(100vh-6.5rem)] items-center justify-center">
-      <Loader />
-    </div>
-  )
-}
-
-const Changelogs = () => {
-  const { i18n } = useTranslation()
-  const [changelogs, setChangelogs] = useState<ChangelogType[]>([])
-
-  async function fetch() {
-    setChangelogs(await ChangelogService.list())
-
-    return true
-  }
-
-  return (
-    <Async fetch={fetch} loader={<Skeleton />}>
-      <div className="space-y-14">
-        {changelogs.map(c => (
-          <div key={c.id} className="text-sm/6">
-            <div className="text-secondary mb-1">
-              {formatDay(dayjs(c.publishedAt), i18n.language)}
-            </div>
-            <h2 className="text-2xl/6 font-bold">{c.title}</h2>
-            <div className="changelog">
-              <Markdown>{c.content}</Markdown>
-            </div>
-          </div>
-        ))}
-      </div>
-    </Async>
-  )
-}
-
 export default function ChangelogsModal() {
-  const { t } = useTranslation()
-  const { isOpen, onOpenChange } = useModal('ChangelogsModal')
+  const { t, i18n } = useTranslation()
+  const { isOpen, payload, onOpenChange } = useModal<ChangelogType>('ChangelogsModal')
 
   return (
     <Modal.Simple
@@ -61,7 +22,21 @@ export default function ChangelogsModal() {
       }}
       onOpenChange={onOpenChange}
     >
-      <Changelogs />
+      {payload && (
+        <div className="text-sm/6">
+          <div className="text-secondary mb-1">
+            {formatDay(dayjs(payload.publishedAt), i18n.language)}
+          </div>
+          <h2 className="text-2xl/6 font-bold">
+            <a href={payload.url} target="_blank" rel="noreferrer" className="hover:underline">
+              {payload.version}
+            </a>
+          </h2>
+          <div className="changelog">
+            <Markdown>{payload.changelog}</Markdown>
+          </div>
+        </div>
+      )}
     </Modal.Simple>
   )
 }

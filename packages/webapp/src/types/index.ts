@@ -24,9 +24,10 @@ export interface FormType extends Omit<FormModel, 'fields'> {
 }
 
 export interface ChangelogType {
-  id: string
-  title: string
-  content: string
+  id: number
+  version: string
+  changelog: string
+  url: string
   publishedAt: string
 }
 

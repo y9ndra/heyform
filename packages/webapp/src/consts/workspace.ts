@@ -1,7 +1,6 @@
 export const USER_STORAGE_KEY = 'HEYFORM_USER'
 export const WORKSPACE_STORAGE_KEY = 'HEYFORM_WORKSPACE'
 export const APPEARANCE_STORAGE_KEY = 'HEYFORM_APPEARANCE'
-export const CHANGELOG_STORAGE_KEY = 'HEYFORM_CHANGELOG'
 
 export const DEFAULT_PROJECT_NAMES: AnyMap = {
   de: "{name}'s Projekt",

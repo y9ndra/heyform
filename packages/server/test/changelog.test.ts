@@ -16,7 +16,6 @@ async function run() {
   }
   let requests = 0
   let failure: Error | undefined
-  let releaseList: unknown[] | undefined
   let release = {
     id: 1,
     tag_name: 'v3.0.5',
@@ -28,7 +27,7 @@ async function run() {
     json: async () => {
       requests++
       if (failure) throw failure
-      return releaseList ?? release
+      return release
     }
   })) as unknown as typeof got.get
 
@@ -70,24 +69,6 @@ async function run() {
     })
     assert.strictEqual(requests, 3)
     assert.deepStrictEqual(durations, ['1d', '5m', '1d'])
-
-    // The full release list is cached for a day as well, and failures aren't cached.
-    store.clear()
-    durations.length = 0
-    requests = 0
-    failure = new Error('API rate limit exceeded')
-    await assert.rejects(service.getAllReleases(), /API rate limit exceeded/)
-    assert.strictEqual(store.size, 0)
-
-    failure = undefined
-    releaseList = [{ ...release, name: 'Release 6' }]
-    const expectedList = [
-      { id: 2, title: 'Release 6', content: '## What changed', publishedAt: release.published_at }
-    ]
-    assert.deepStrictEqual(await service.getAllReleases(), expectedList)
-    assert.deepStrictEqual(await service.getAllReleases(), expectedList)
-    assert.strictEqual(requests, 2)
-    assert.deepStrictEqual(durations, ['1d'])
   } finally {
     got.get = originalGet
   }

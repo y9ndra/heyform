@@ -7,7 +7,6 @@ import { toJSON } from '@heyform-inc/utils'
 interface GitHubRelease {
   id: number
   tag_name: string
-  name: string
   body: string
   html_url: string
   published_at: string
@@ -21,16 +20,8 @@ interface LatestRelease {
   publishedAt: string
 }
 
-interface Release {
-  id: number
-  title: string
-  content: string
-  publishedAt: string
-}
-
 const GITHUB_API_URL = 'https://api.github.com/repos/heyform/heyform/releases'
 const LATEST_CACHE_KEY = 'changelog:latest'
-const ALL_CACHE_KEY = 'changelog:all'
 const CACHE_TTL = '1d'
 const FAILURE_CACHE_TTL = '5m'
 
@@ -83,35 +74,5 @@ export class ChangelogService {
     })
 
     return release
-  }
-
-  async getAllReleases() {
-    const cached = await this.redisService.get(ALL_CACHE_KEY)
-
-    if (cached) return toJSON<Release[]>(cached, [])
-
-    const result = await got
-      .get(GITHUB_API_URL, {
-        headers: {
-          Accept: 'application/vnd.github.v3+json',
-          'User-Agent': 'Heyform-Changelog'
-        }
-      })
-      .json<GitHubRelease[]>()
-
-    const releases: Release[] = result.map(r => ({
-      id: r.id,
-      title: r.name || r.tag_name,
-      content: r.body || '',
-      publishedAt: r.published_at
-    }))
-
-    await this.redisService.set({
-      key: ALL_CACHE_KEY,
-      value: JSON.stringify(releases),
-      duration: CACHE_TTL
-    })
-
-    return releases
   }
 }

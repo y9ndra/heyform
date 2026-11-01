@@ -50,6 +50,10 @@ pnpm --filter ./packages/server run test:e2e
 The runner targets `http://localhost:9157` (the port published by
 `docker-compose.test.yml`). Override with `E2E_BASE_URL`.
 
+The runner loads `packages/server/.env`, so `MONGO_URI` and `REDIS_*` from that
+file apply. If the file doesn't match the target server (for example, the docker
+stack above), export `E2E_MONGO_URI` and `E2E_REDIS_PORT`, which take priority.
+
 ### Option B — bring the stack up and tear it down around the run
 
 ```bash

@@ -1,4 +1,7 @@
 /* eslint-disable no-console */
+// Load .env so the seed and verification helpers use the same Mongo and Redis as a local server
+import '@environments'
+
 import { build as buildAuthFlows } from './auth-flows.e2e.test'
 import { build as buildAuth } from './auth.e2e.test'
 import { build as buildCatalog } from './catalog.e2e.test'

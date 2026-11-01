@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { FormService } from '../src/service/form.service'
 import { normalizeInvitationRecipients } from '../src/utils/invitation'

@@ -1,5 +1,5 @@
 import { BadRequestException, ServiceUnavailableException } from '@nestjs/common'
-import * as oidc from 'openid-client'
+import oidc from 'openid-client'
 
 import { formatLocale } from './utils'
 

@@ -1,5 +1,5 @@
-import * as assert from 'assert'
-import * as bcrypt from 'bcrypt'
+import assert from 'assert'
+import bcrypt from 'bcrypt'
 
 import { LoginResolver } from '../src/resolver/auth/login.resolver'
 import { SignUpResolver } from '../src/resolver/auth/sign-up.resolver'

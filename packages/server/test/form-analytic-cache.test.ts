@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 import {
   FORM_ANALYTIC_CACHE_CLEAR_TIMEOUT_MS,

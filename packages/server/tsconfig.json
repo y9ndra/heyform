@@ -28,6 +28,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "noEmitOnError": false,
     "noUnusedLocals": true,
     "allowUnreachableCode": false,

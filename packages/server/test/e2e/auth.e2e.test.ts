@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { E2EClient } from './helpers/client'
 import { LOGIN_GQL, SIGN_UP_GQL, TEAMS_GQL, USER_DETAIL_GQL } from './helpers/gql'

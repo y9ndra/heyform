@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { ConnectStripeResolver } from '../src/resolver/payment/connect-stripe.resolver'
 import { RevokeStripeAccountResolver } from '../src/resolver/payment/revoke-stripe-account.resolver'

@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 import { validateSync } from 'class-validator'
 
 import { UpdateFormThemeResolver } from '../src/resolver/form/update-form-theme.resolver'

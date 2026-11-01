@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { validateAppConfig } from '../src/apps/validate-config'
 import { IntegrationStatusEnum } from '../src/model/integration.model'

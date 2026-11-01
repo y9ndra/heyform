@@ -1,6 +1,6 @@
 import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
 import { BadRequestException } from '@nestjs/common'
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { UpdateSubmissionAnswerResolver } from '../src/resolver/submission/update-submission-answer.resolver'
 

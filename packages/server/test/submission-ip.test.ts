@@ -1,5 +1,5 @@
 import { FieldKindEnum } from '@heyform-inc/shared-types-enums'
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { SubmissionsResolver } from '../src/resolver/submission/submissions.resolver'
 import { ExportFileService } from '../src/service/export-file.service'

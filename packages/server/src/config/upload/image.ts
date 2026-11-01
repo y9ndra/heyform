@@ -1,4 +1,4 @@
-import * as sharp from 'sharp'
+import sharp from 'sharp'
 
 export const MAX_REMOTE_IMAGE_BYTES = 10 * 1024 * 1024
 

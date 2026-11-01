@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { E2EClient } from './helpers/client'
 import { signUpUser } from './helpers/fixtures'

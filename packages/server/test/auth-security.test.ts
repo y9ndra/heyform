@@ -1,5 +1,5 @@
-import * as assert from 'assert'
-import * as bcrypt from 'bcrypt'
+import assert from 'assert'
+import bcrypt from 'bcrypt'
 
 import { LoginResolver, loginAttemptKey } from '../src/resolver/auth/login.resolver'
 import { SendResetPasswordEmailResolver } from '../src/resolver/auth/send-reset-password-email.resolver'

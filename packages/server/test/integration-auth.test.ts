@@ -1,6 +1,6 @@
-import * as assert from 'assert'
-import * as crypto from 'crypto'
-import * as http from 'http'
+import assert from 'assert'
+import crypto from 'crypto'
+import http from 'http'
 import { AddressInfo } from 'net'
 
 import type { AppDefinition } from '../src/apps/types'

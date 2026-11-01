@@ -1,12 +1,12 @@
 import { ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { NestExpressApplication } from '@nestjs/platform-express'
-import * as bodyParser from 'body-parser'
-import * as cookieParser from 'cookie-parser'
-import * as rateLimit from 'express-rate-limit'
-import * as helmet from 'helmet'
+import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
+import rateLimit from 'express-rate-limit'
+import helmet from 'helmet'
 import { extname } from 'path'
-import * as serveStatic from 'serve-static'
+import serveStatic from 'serve-static'
 
 import { corsOrigin, getUploadContentDisposition, sanitizeUploadFilename } from '@config'
 import {

@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { TeamRoleEnum } from '../src/model/team-member.model'
 import { AddProjectMemberResolver } from '../src/resolver/project/add-project-member.resolver'

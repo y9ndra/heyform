@@ -1,5 +1,5 @@
 import { BadRequestException, ForbiddenException, Injectable } from '@nestjs/common'
-import * as crypto from 'crypto'
+import crypto from 'crypto'
 import got from 'got'
 
 import { AppService } from './app.service'

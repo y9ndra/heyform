@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { WEBHOOK_MAX_RESPONSE_BYTES, readLimitedWebhookResponse } from '../src/apps/webhook'
 

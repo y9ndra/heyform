@@ -1,5 +1,5 @@
 import { MongooseModuleOptions, MongooseOptionsFactory } from '@nestjs/mongoose'
-import * as mongoose from 'mongoose'
+import mongoose from 'mongoose'
 
 import { MONGO_PASSWORD, MONGO_SSL_CA_PATH, MONGO_URI, MONGO_USER, NODE_ENV } from '@environments'
 import { Logger } from '@utils'

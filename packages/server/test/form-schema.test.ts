@@ -5,7 +5,7 @@ import {
   FormField,
   Logic
 } from '@heyform-inc/shared-types-enums'
-import * as assert from 'assert'
+import assert from 'assert'
 
 import {
   assertValidChoiceBranching,

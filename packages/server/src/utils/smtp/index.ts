@@ -1,4 +1,4 @@
-import * as nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer'
 
 export interface SmtpOptions {
   host: string

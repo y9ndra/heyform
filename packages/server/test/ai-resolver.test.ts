@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 import 'reflect-metadata'
 
 import { AIResolver } from '../src/resolver/form/ai.resolver'

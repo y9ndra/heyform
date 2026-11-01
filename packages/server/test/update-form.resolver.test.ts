@@ -1,5 +1,5 @@
-import * as assert from 'assert'
-import * as bcrypt from 'bcrypt'
+import assert from 'assert'
+import bcrypt from 'bcrypt'
 
 import { UpdateFormResolver } from '../src/resolver/form/update-form.resolver'
 

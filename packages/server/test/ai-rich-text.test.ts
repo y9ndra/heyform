@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { normalizeAIFields } from '../src/utils/ai-fields'
 import { normalizeAIRichText } from '../src/utils/ai-rich-text'

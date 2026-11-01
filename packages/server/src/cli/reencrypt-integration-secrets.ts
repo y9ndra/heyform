@@ -7,7 +7,7 @@
  *   node dist/src/cli/reencrypt-integration-secrets.js   (built server, e.g. Docker)
  *   pnpm integrations:reencrypt                         (source checkout)
  */
-import * as mongoose from 'mongoose'
+import mongoose from 'mongoose'
 
 import { MongoService } from '../config/mongo'
 import { IntegrationConnectionSchema } from '../model/integration-connection.model'

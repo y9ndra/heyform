@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 // The server's own key isn't used for integrations any more
 process.env.FORM_ENCRYPTION_KEY = 'form-key'

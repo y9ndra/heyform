@@ -1,4 +1,4 @@
-import * as assert from 'assert'
+import assert from 'assert'
 
 import { OTHER_CHOICE_ID } from '@heyform-inc/answer-utils'
 

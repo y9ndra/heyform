@@ -1,9 +1,9 @@
 // @ts-ignore
-import * as hbs from 'hbs'
+import hbs from 'hbs'
 
 const h = hbs as any
 
-h.registerHelper('json', v1 =>
+h.registerHelper('json', (v1: any) =>
   JSON.stringify(v1)
     .replace(/</g, '\\u003c')
     .replace(/>/g, '\\u003e')

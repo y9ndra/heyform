@@ -26,7 +26,7 @@ export class Uploader {
 
         if (helper.isValid(value)) {
           if (row.kind === FieldKindEnum.SIGNATURE) {
-            value = this.b64ImageURLToBlob(value as string) as File
+            value = this.b64ImageURLToFile(value as string)
           }
 
           this.fields.push({
@@ -71,7 +71,7 @@ export class Uploader {
     }
   }
 
-  b64ImageURLToBlob(b64ImageURL: string): Blob {
+  b64ImageURLToFile(b64ImageURL: string): File {
     const [prefix, data] = b64ImageURL.split(',')
     const type = prefix.split(':')[1].split(';')[0]
     const bytes = atob(data)
@@ -82,9 +82,8 @@ export class Uploader {
       intArray[i] = bytes.charCodeAt(i)
     }
 
-    const blob: Any = new Blob([intArray], { type })
-    blob.name = 'signature.png'
-
-    return blob
+    // A .name property on a Blob is ignored by FormData, which sends filename="blob".
+    // Use a real File so the multipart filename matches the PNG signature data.
+    return new File([intArray], 'signature.png', { type })
   }
 }
